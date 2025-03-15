@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jeremy | Programmer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeremy Chan | Programmer</title>
 
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome (for icons) -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -13,235 +13,121 @@
     crossorigin="anonymous"
   />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- Inter -->
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
-  <style>
-    /* --- Basic Reset and Styles --- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Roboto';
-      line-height: 1.6;
-      background-color: #fdfdfd;
-      color: #333;
-    }
-
-    header {
-      padding: 2rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    header p {
-      font-size: 1rem;
-      color: #555;
-    }
-
-    nav {
-      text-align: center;
-      margin-top: 1rem;
-    }
-
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-      transition: color 0.2s ease;
-    }
-
-    nav a:hover {
-      color: #007acc;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    section {
-      margin-bottom: 3rem;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #007acc;
-      display: inline-block;
-      padding-bottom: 0.25rem;
-    }
-
-    .project-grid {
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      margin-top: 1rem;
-    }
-
-    .project {
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      padding: 1rem;
-      text-align: center;
-      transition: box-shadow 0.2s ease;
-    }
-
-    .project:hover {
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .project h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
-    }
-
-    .project p {
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-    }
-
-    .project a {
-      color: #007acc;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .font-bold {
-      font-weight: bold;
-    }
-
-    /* --- Footer Styles --- */
-    footer {
-      background: linear-gradient(120deg, #202028 0%, #2C2C34 100%);
-      color: #ffffff;
-      padding: 3rem 1rem;
-      text-align: center;
-      margin-top: 3rem;
-      position: relative;
-    }
-
-    footer h2 {
-      font-size: 2rem;
-      font-weight: 900;
-      margin-bottom: 1rem;
-    }
-
-    footer p {
-      font-size: 1rem;
-      margin-bottom: 2rem;
-      color: #dddddd;
-    }
-
-    /* Icons container */
-    .icons {
-      display: flex;
-      gap: 2rem;
-      justify-content: left;
-      align-items: center;
-    }
-
-    /* Icon styles */
-    .icons a {
-      font-size: 2rem; /* size of the icon */
-      color: #00ccff;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .icons a:hover {
-      color: #0098be;
-      /* pick a color you like for hover */
-    }
-
-    /* Smaller screens */
-    @media (max-width: 600px) {
-      footer h2 {
-        font-size: 1.5rem;
-      }
-      .icons a {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>Jeremy Chan</h1>
-    <p>Software Engineer | Game Developer</p>
-    <nav>
-      <a href="#projects">Projects</a>
-      <a href="#about">About Me</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <!-- ========== HEADER / HERO SECTION ========== -->
+  <header class="hero">
+    <div class="hero-overlay">
+      <h1>JEREMY CHAN</h1>
+      <p>Software Programmer | Game Developer</p>
+      <nav class="main-nav">
+        <a href="#about">About Me</a>
+        <a href="#games">Games</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
+  <!-- ========== MAIN CONTENT ========== -->
   <main>
-    <!-- Projects Section -->
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="project-grid">
-        <div class="project">
-          <h3>Project 1</h3>
-          <p>A brief description of your project.</p>
-          <a href="https://github.com/chunkybubble" target="_blank">View on GitHub</a>
-        </div>
-        <div class="project">
-          <h3>Project 2</h3>
-          <p>A brief description of your project.</p>
-          <a href="https://github.com/chunkybubble" target="_blank">View on GitHub</a>
-        </div>
-        <!-- Add more projects as needed -->
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
+    <!-- ========== ABOUT SECTION ========== -->
+    <section id="about" class="section-container">
       <h2>About Me</h2>
       <p>
-        I am a software developer with a big interest in video games. 
+        I am a software developer with a great interest in video games. 
         I also love photography and films!
       </p>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
+    <!-- ========== GAMES SECTION ========== -->
+    <section id="games" class="section-container">
+      <h2>Games</h2>
+      <div class="cards-grid">
+        <article class="card">
+          <div class="card-media">
+            <iframe src="https://www.youtube.com/embed/jMvKvuhe6KU"
+            title="gon trailer" frameborder="0" allowfullscreen>
+            </iframe>
+          </div>
+          <h3>gon</h3>
+          <p>A game that switches between dimensions to change your perception.</p>
+          <a href="https://maggierose-ctrl.itch.io/gon" target="_blank">View on Itch.io</a>
+        </article>
+        <article class="card">
+          <div class="card-media">
+            <img src="images/silent_guest.png" alt="Silent Guest thumbnail">
+          </div>
+          <h3>The Silent Guest</h3>
+          <p>Escape the killer. A horror game with PS2-inspired graphics.</p>
+          <a href="https://getmikyled.itch.io/silent-guest" target="_blank">View on Itch.io </a>
+        </article>
+        <article class="card">
+          <div class="card-media">
+            <img src="images/frog_ninja.png" alt="Frog Ninja thumbnail">
+          </div>
+          <h3>The Frog Ninja</h3>
+          <p>A simple 2D platformer game.</p>
+          <a href="https://chunkybubble.itch.io/the-frog-ninja" target="_blank">View on Itch.io </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========== PROJECTS SECTION ========== -->
+    <section id="projects" class="section-container">
+      <h2>Projects</h2>
+      <div class="cards-grid">
+        <article class="card">
+          <div class="card-media">
+            <img src="images/spot_finder.png" alt="Spot Finder thumbnail">
+          </div>
+          <h3>Spot Finder</h3>
+          <p>Application that uses Yelp's Fusion API to search for restaurants.</p>
+          <a href="https://github.com/chunkybubble/CS151-SpotFinder" target="_blank">View on GitHub</a>
+        </article>
+        <article class="card">
+          <div class="card-media">
+            <iframe src="https://www.youtube.com/embed/5y_gna6RdbY"
+            title="watermelon website" frameborder="0" allowfullscreen>
+            </iframe>
+          </div>
+          <h3>Social Media Website</h3>
+          <p>A website that supports user accounts, image posting, and post comments.</p>
+          <a href="https://github.com/chunkybubble/watermelon-website" target="_blank">View on GitHub</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT SECTION ========== -->
+    <section id="contact" class="section-container">
       <h2>Contact</h2>
-      <p class="font-bold">Email</p>
+      <p class="font-bold email">Email</p>
       <p>jeremynchan@gmail.com</p>
 
-      <!-- Icon-only links -->
-      <div class="icons">
+      <div class="footer-icons">
         <!-- Email -->
-        <a href="mailto:jeremynchan@gmail.com" target="_blank" rel="noopener noreferrer"
-          aria-label="Email me">
+        <a href="mailto:jeremynchan@gmail.com" target="_blank" rel="noopener" aria-label="Email me">
           <i class="fas fa-envelope"></i>
         </a>
         <!-- GitHub -->
-        <a href="https://github.com/chunkybubble" target="_blank" rel="noopener noreferrer"
-          aria-label="My GitHub Profile">
+        <a href="https://github.com/chunkybubble" target="_blank" rel="noopener" aria-label="GitHub profile">
           <i class="fab fa-github"></i>
         </a>
         <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/in/jeremychan87/" target="_blank" rel="noopener noreferrer"
-          aria-label="My LinkedIn Profile">
+        <a href="https://www.linkedin.com/in/jeremychan87/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
     </section>
   </main>
 
-  <!-- New Footer Section -->
+  <!-- ========== FOOTER ========== -->
   <footer>
     &copy; 2025 Jeremy Chan
   </footer>
