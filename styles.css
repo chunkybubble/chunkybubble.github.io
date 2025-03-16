@@ -11,7 +11,7 @@
     font-family: Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
     color: #333;
-    background: #fafafa;
+    background: #dfdfdf;
     line-height: 1.6;
   }
   @supports (font-variation-settings: normal) {
@@ -99,14 +99,14 @@
     padding: 1rem 1.25rem;
     background: #f9f9f9;
     border-radius: 6px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
     transition: transform 0.2s, box-shadow 0.2s;
     text-align: center;
   }
   
   .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
   }
   
   .card h3 {
@@ -149,6 +149,15 @@
 
   #about p, #contact p {
     text-align: center;
+  }
+
+  .pic-of-me {
+    display: block;
+    width: 12rem;
+    height: 12rem;
+    border-radius: 5px;
+    margin: auto;
+    margin-bottom: 1.5rem;
   }
   
   /* ============================= */
