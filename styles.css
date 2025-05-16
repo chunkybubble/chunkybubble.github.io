@@ -7,12 +7,13 @@
     box-sizing: border-box;
   }
   
-  body {
+  html, body {
     font-family: Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
     color: #333;
     background: #dfdfdf;
     line-height: 1.6;
+    height: 100%;
   }
   @supports (font-variation-settings: normal) {
     :root { font-family: InterVariable, sans-serif; }
@@ -159,6 +160,17 @@
     margin: auto;
     margin-bottom: 1.7rem;
   }
+
+  .page-wrapper {
+  display:flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+#content {
+  flex: 1;
+  padding: 2rem 1rem;
+}
   
   /* ============================= */
   /*            FOOTER             */
@@ -226,3 +238,37 @@
     }
   }
   
+  /* AOS animations override (optional timing tweaks) */
+[data-aos] {
+  opacity: 0;
+  transition-property: opacity, transform;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+}
+
+/* Page transition overlay */
+.page-transition {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #fff;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Card hover – subtle GSAP target */
+.card:hover {
+  cursor: pointer;
+}
+
+/* Smooth link fade */
+a {
+  transition: color 0.2s ease;
+}
+
+#content.fade-out { opacity: 1; transition: opacity 0.3s; }
+#content.fade-out { opacity: 0; }
+#content.fade-in  { opacity: 0; transition: opacity 0.3s; }
+#content.fade-in  { opacity: 1; }
