@@ -20,7 +20,7 @@
   }
   
   /* ============================= */
-  /*        HERO / HEADER          */
+  /*            HEADER             */
   /* ============================= */
   .hero {
     /* Full-height hero with background image or gradient */
@@ -238,7 +238,7 @@
     }
   }
   
-  /* AOS animations override (optional timing tweaks) */
+/* AOS animations override */
 [data-aos] {
   opacity: 0;
   transition-property: opacity, transform;
