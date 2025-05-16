@@ -19,7 +19,7 @@
   }
   
   /* ============================= */
-  /*        HERO / HEADER          */
+  /*            HEADER             */
   /* ============================= */
   .hero {
     /* Full-height hero with background image or gradient */
@@ -226,3 +226,32 @@
     }
   }
   
+/* AOS animations override */
+[data-aos] {
+  opacity: 0;
+  transition-property: opacity, transform;
+}
+
+[data-aos].aos-animate {
+  opacity: 1;
+}
+
+/* Page transition overlay */
+.page-transition {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #fff;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Card hover – subtle GSAP target */
+.card:hover {
+  cursor: pointer;
+}
+
+/* Smooth link fade */
+a {
+  transition: color 0.2s ease;
+}
