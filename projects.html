@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="images/jeremy-icon.ico">
-  <title>Jeremy Chan | Games</title>
+  <title>Jeremy Chan | About</title>
 
   <!-- Font Awesome (for icons) -->
   <link
@@ -23,68 +23,70 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 </head>
 <body>
+  <div class="page-wrapper">
     <!-- ========== HEADER ========== -->
-  <header class="hero">
-    <div class="hero-overlay">
-      <h1>JEREMY CHAN</h1>
-      <p>Software Programmer | Game Developer</p>
-      <nav class="main-nav">
-        <a href="index.html">About</a>
-        <a href="games.html">Games</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <header class="hero">
+      <div class="hero-overlay">
+        <h1>JEREMY CHAN</h1>
+        <p>Software Programmer | Game Developer</p>
+        <nav class="main-nav">
+          <a href="/">About</a>
+          <a href="/games">Games</a>
+          <a href="/projects">Projects</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-    <!-- ========== PROJECTS SECTION ========== -->
-    <main>
-        <section id="projects" class="section-container">
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="content" class="section-container">
+      <!-- ========== PROJECTS SECTION ========== -->
+      <section id="projects" data-aos="fade-up">
         <h2>Projects</h2>
         <div class="cards-grid">
-            <!-- Meow Mayhem -->
-            <article class="card">
+          <!-- Meow Mayhem -->
+          <article class="card">
             <div class="card-media">
-                <iframe src="https://www.youtube.com/embed/FnxF7EKQyhw"
-                title="meow mayhem" frameborder="0" allowfullscreen>
-                </iframe>
+              <iframe src="https://www.youtube.com/embed/FnxF7EKQyhw"
+              title="meow mayhem" frameborder="0" allowfullscreen>
+              </iframe>
             </div>
             <h3>Meow Mayhem</h3>
             <p>A game made fully in Python with the Python Arcade library.</p>
             <a href="https://github.com/g-bolotin/cs122proj" target="_blank">View on GitHub</a>
-            </article>
-            <!-- Spot Finder -->
-            <article class="card">
+          </article>
+          <!-- Spot Finder -->
+          <article class="card">
             <div class="card-media">
-                <img src="images/spot_finder.png" alt="Spot Finder thumbnail">
+              <img src="images/spot_finder.png" alt="Spot Finder thumbnail">
             </div>
             <h3>Spot Finder</h3>
             <p>An application that uses Yelp's Fusion API to search for restaurants.</p>
             <a href="https://github.com/chunkybubble/CS151-SpotFinder" target="_blank">View on GitHub</a>
-            </article>
-            <!-- Social Media Website -->
-            <article class="card">
+          </article>
+          <!-- Social Media Website -->
+          <article class="card">
             <div class="card-media">
-                <iframe src="https://www.youtube.com/embed/5y_gna6RdbY"
-                title="watermelon website" frameborder="0" allowfullscreen>
-                </iframe>
+              <iframe src="https://www.youtube.com/embed/5y_gna6RdbY"
+              title="watermelon website" frameborder="0" allowfullscreen>
+              </iframe>
             </div>
             <h3>Social Media Website</h3>
             <p>A website that supports user accounts, image posting, and post comments.</p>
             <a href="https://github.com/chunkybubble/watermelon-website" target="_blank">View on GitHub</a>
-            </article>
+          </article>
         </div>
-        </section>
-    </main>
+      </section>
 
     <!-- ========== FOOTER ========== -->
     <footer>
-        &copy; 2025 Jeremy Chan
+      &copy; 2025 Jeremy Chan
     </footer>
+  </div>
 
-    <!-- scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-    <script src="script.js"></script>
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

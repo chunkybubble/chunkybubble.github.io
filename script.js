@@ -5,23 +5,28 @@ AOS.init({ duration: 800, once: true });
 const links = document.querySelectorAll('.main-nav a');
 const container = document.getElementById('content');
 
-// Utility to load a URL’s <main> innerHTML
-async function loadSection(url, addToHistory = true) {
-  // fade out
+async function loadSection(route, addToHistory = true) {
   container.classList.add('fade-out');
-  const res = await fetch(url);
+
+  // derive the actual file to fetch:
+  // "/" → "index.html", "/games" → "games.html", etc.
+  let file = route === '/' 
+    ? 'index.html' 
+    : `${route.replace(/^\/|\/$/g, '')}.html`;
+
+  const res  = await fetch(file);
   const html = await res.text();
-  const doc = new DOMParser().parseFromString(html, 'text/html');
-  const newContent = doc.querySelector('main').innerHTML;
-  // swap in
-  container.innerHTML = newContent;
-  AOS.refresh();                       // re-init AOS on new elements
+  const doc  = new DOMParser().parseFromString(html, 'text/html');
+  const newMain = doc.querySelector('main').innerHTML;
+
+  container.innerHTML = newMain;
+  AOS.refresh();   // re-init AOS on fresh content
   container.classList.replace('fade-out', 'fade-in');
-  // update URL
-  if (addToHistory) history.pushState(null, '', url);
+
+  if (addToHistory) history.pushState(null, '', route);
 }
 
-// Link clicks → AJAX
+// wire up clicks
 links.forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
@@ -29,7 +34,7 @@ links.forEach(link => {
   });
 });
 
-// Back/forward support
+// handle back/forward
 window.addEventListener('popstate', () => {
   loadSection(location.pathname, false);
 });
