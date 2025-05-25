@@ -129,6 +129,9 @@
     font-weight: bold;
     color: #0077b6;
   }
+  .card a :hover {
+    color: #00476d;
+  }
 
   .card-media {
     margin-bottom: 1rem;
