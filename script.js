@@ -1,8 +1,8 @@
 // Initialize animations
 AOS.init({ duration: 800, once: true });
 
-// Grab clickable links & content container
-const links = document.querySelectorAll('.main-nav a');
+// Grab clickable links & content container, skip external links
+const links = document.querySelectorAll('.main-nav a:not(.external-link');
 const container = document.getElementById('content');
 
 async function loadSection(route, addToHistory = true) {
