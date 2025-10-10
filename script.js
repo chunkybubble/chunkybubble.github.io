@@ -8,23 +8,36 @@ const container = document.getElementById('content');
 async function loadSection(route, addToHistory = true) {
   container.classList.add('fade-out');
 
-  // derive the actual file to fetch:
-  // "/" → "index.html", "/games" → "games.html", etc.
-  let file = route === '/' 
-    ? 'index.html' 
-    : `${route.replace(/^\/|\/$/g, '')}.html`;
+  // derive the file: "/" → "index.html", "/games" → "games.html"
+  const file = route === '/' ? 'index.html' : `${route.replace(/^\/|\/$/g, '')}.html`;
 
-  const res  = await fetch(file);
+  const res  = await fetch(file, { credentials: 'omit' });
+  if (!res.ok) {
+    console.error(`Failed to load ${file}: ${res.status}`);
+    // Optional: load a 404 page or show a toast here
+    container.classList.remove('fade-out');
+    return;
+  }
+
   const html = await res.text();
   const doc  = new DOMParser().parseFromString(html, 'text/html');
-  const newMain = doc.querySelector('main').innerHTML;
 
+  // ===== swap main content =====
+  const newMain = doc.querySelector('main')?.innerHTML ?? '';
   container.innerHTML = newMain;
-  AOS.refresh();   // re-init AOS on fresh content
+
+  // ===== update the <title> =====
+  const newTitle = doc.querySelector('title')?.textContent?.trim();
+  if (newTitle) document.title = newTitle;
+
+  // ===== UI polish =====
+  window.scrollTo({ top: 0, behavior: 'instant' }); // ensures new section starts at top
+  AOS.refresh(); // re-init AOS on fresh content
   container.classList.replace('fade-out', 'fade-in');
 
-  if (addToHistory) history.pushState(null, '', route);
+  if (addToHistory) history.pushState({ route }, newTitle || '', route);
 }
+
 
 // wire up clicks
 links.forEach(link => {
