@@ -127,9 +127,9 @@
   .card a {
     text-decoration: none;
     font-weight: bold;
-    color: #0077b6;
+    color: #0179b9;
   }
-  .card a :hover {
+  .card a:hover {
     color: #00476d;
   }
 
@@ -144,8 +144,36 @@
     border-radius: 6px;
   }
 
-  .card-media img{
+  .card-media img {
     object-fit: cover;
+  }
+
+  .card-media-detail {
+    text-align: center;
+  }
+
+  .card-media-detail img,
+  .card-media-detail iframe {
+    width: 65%;
+    height: 450px;
+    border-radius: 6px;
+    margin-bottom: 1vh;
+  }
+
+  .card-button {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    background: #68c5ec;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  .card-button:hover {
+    background: #53aed8;
   }
   
   /* "font-bold" class used in contact info */
@@ -176,6 +204,10 @@
     flex: 1;
     padding: 2rem 1rem;
   }
+
+  ul {
+    padding-left: 1vw;
+  }
   
   /* ============================= */
   /*            FOOTER             */
@@ -184,7 +216,7 @@
     background: linear-gradient(270deg, #4795b9 0%, #5393a8 50%, #68c5ec 100%);
     color: #fff;
     text-align: center;
-    padding: 3rem 1rem;
+    padding: 2rem 1rem;
   }
   
   footer h2 {
