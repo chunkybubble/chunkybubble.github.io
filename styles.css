@@ -160,7 +160,7 @@
     margin-bottom: 1vh;
   }
 
-  .card-button {
+  /* .card-button {
     display: inline-block;
     margin-top: 0.5rem;
     padding: 0.4rem 0.8rem;
@@ -170,10 +170,15 @@
     font-weight: 600;
     text-decoration: none;
     font-size: 0.9rem;
-  }
+  } */
 
-  .card-button:hover {
-    background: #53aed8;
+  .card-button {
+    display: inline-block;
+    padding: 0.4rem 0.4rem 0.8rem 0.4rem;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
   }
   
   /* "font-bold" class used in contact info */

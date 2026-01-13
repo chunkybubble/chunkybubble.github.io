@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/images/jeremy-icon.ico">
+  <title>Landing Simulator</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css">
+
+  <!-- Inter -->
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- HEADER -->
+    <header class="hero">
+      <div class="hero-overlay">
+        <h1>JEREMY CHAN</h1>
+        <p>Software Engineer | Game Developer</p>
+        <nav class="main-nav">
+          <a href="/">About</a>
+          <a href="/games">Games</a>
+          <a href="/projects">Projects</a>
+          <a href="/contact">Contact</a>
+          <a href="/assets/resume.pdf" target="_blank" class="external-link">Resume</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="content" class="section-container">
+      <section data-aos="fade-up">
+        <h2>Landing Simulator</h2>
+
+        <div class="card-media-detail">
+              <iframe src="https://www.youtube.com/embed/PVBj_ay76Fw"
+              title="landing sim" frameborder="0" allowfullscreen>
+              </iframe>
+        </div>
+
+        <p>
+          <strong>Type:</strong> Simulation game &nbsp;•&nbsp;
+          <strong>Role:</strong> Programmer, Modeler &nbsp;•&nbsp;
+          <strong>Team size:</strong> 2 &nbsp;•&nbsp;
+          <strong>Tools:</strong> C++, OpenFrameworks
+        </p>
+
+        <h3 style="margin-top: 1.5rem;">Overview</h3>
+        <p>
+          A landing simulator (hence the name) game where the player attempts to safely land a lunar lander.
+          The focus is on slow and steady descent using different cameras to land safely.
+        </p>
+
+        <h3 style="margin-top: 1.5rem;">My Contributions</h3>
+        <ul>
+          <li>Implemented and designed the scoring system, including octree-based collision and velocity calculations.</li>
+          <li>Programmed player controls and physics systems to simulate realistic descent and landing challenges.</li>
+          <li>Modeled and textured 3D assets for the moon and lander.</li>
+        </ul>
+
+        <h3 style="margin-top: 1.5rem;">Technical Details</h3>
+        <ul>
+          <li>Used OpenFrameworks to handle model loading, audio, graphics, cameras, etc.</li>
+          <li>Includes input system and camera switching.</li>
+          <li>Has start menu and restart after game over.</li>
+        </ul>
+
+        <h3 style="margin-top: 1.5rem;">What I Learned</h3>
+        <ul>
+          <li>Improved my skills in C++.</li>
+          <li>Octree-based collision, graphics, rendering, shaders, and rays, deepening my understanding of game engines.</li>
+          <li>The artist's perspective of a project, including how to quickly iterate based on feedback after 3D modeling for the first time.</li>
+        </ul>
+
+        <p style="margin-top: 2rem;">
+          <a href="https://github.com/chunkybubble/3DLandingSimulationGame" target="_blank" class="external-link">
+            View on GitHub
+          </a>
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
