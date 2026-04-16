@@ -9,7 +9,7 @@ async function loadSection(route, addToHistory = true) {
   container.classList.add('fade-out');
 
   // derive the file: "/" → "index.html", "/games" → "games.html"
-  const file = route === '/' ? 'index.html' : `${route.replace(/^\/|\/$/g, '')}.html`;
+  const file = route === '/' ? '/index.html' : `/${route.replace(/^\/|\/$/g, '')}.html`;
 
   const res  = await fetch(file, { credentials: 'omit' });
   if (!res.ok) {
