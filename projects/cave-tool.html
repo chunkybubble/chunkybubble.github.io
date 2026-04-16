@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/assets/images/jeremy-icon.ico">
+  <title>Cave Tool</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css">
+
+  <!-- Inter -->
+  <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- HEADER -->
+    <header class="hero">
+      <div class="hero-overlay">
+        <h1>JEREMY CHAN</h1>
+        <p>Gameplay Programmer | Technical Artist</p>
+        <nav class="main-nav">
+          <a href="/">About</a>
+          <a href="/games">Games</a>
+          <a href="/projects">Projects</a>
+          <a href="/contact">Contact</a>
+          <a href="/assets/resume.pdf" target="_blank" class="external-link">Resume</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="content" class="section-container">
+      <section data-aos="fade-up">
+        <h2>Procedural Cave Tool</h2>
+
+        <div class="card-media-detail">
+          <img src="/assets/gifs/cave_tool.gif" alt="cave tool gif">
+        </div>
+
+        <p>
+          <strong>Type:</strong> Procedural Tool &nbsp;•&nbsp;
+          <strong>Role:</strong> Programmer, Tech Artist &nbsp;•&nbsp;
+          <strong>Team size:</strong> 1 &nbsp;•&nbsp;
+          <strong>Tools:</strong> Houdini, Unreal Engine, Houdini Engine
+        </p>
+
+        <h3 style="margin-top: 1.5rem;">Overview</h3>
+        <p>
+          A procedural tool that creates unique cave systems with a spline editor. Takes a 
+          basic spline and randomly generates branches and rooms based of it.
+        </p>
+
+        <h3 style="margin-top: 1.5rem;">My Contributions</h3>
+        <ul>
+          <li>Created and programmed the Houdini Digital Asset (HDA). </li>
+          <li>Integrated the HDA into Unreal Engine using Houdini Engine for designers/artists to quickly create cave systems.</li>
+          <li>Populate the caves with a variety of player collectibles, plants, and wildlife.</li>
+        </ul>
+
+        <h3 style="margin-top: 1.5rem;">Technical Details</h3>
+        <ul>
+          <li>HDA crafted using operators and VEX to give randomness to cave systems
+            and create data for objects to be placed inside caves.
+          </li>
+          <li>
+            Tool includes a button to regenerate all cave meshes in Unreal Engine if HDA is modified.
+          </li>
+          <li>HDA contains several user-editable parameters to change cave randomness.</li>
+          <li>
+            Tool includes a vector point position editor if user does not want to use spline editor.
+          </li>
+        </ul>
+
+        <h3 style="margin-top: 1.5rem;">What I Learned</h3>
+        <ul>
+          <li>The importance of pre-planning before execution. There are many ways to create caves, 
+            but I had to ask myself what type of caves would benefit the game.
+          </li>
+          <li>The value of teamwork. There were many times while developing this where I got stuck and confused.
+            Whether it's an easy or complicated problem, having another pair of eyes on it helped me work through it.
+          </li>
+        </ul>
+
+        <p style="margin-top: 2rem;">
+          Developed for <b>Pier 5411</b> (game WIP)
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>
