@@ -44,8 +44,8 @@ async function loadSection(route, addToHistory = true) {
 // Initialize partials and animations
 async function init() {
   await Promise.all([
-    loadPartial('/partials/_header.html', 'header'),
-    loadPartial('/partials/_footer.html', 'footer'),
+    loadPartial('/partials/header.html', 'header'),
+    loadPartial('/partials/footer.html', 'footer'),
   ]);
 
   // Wire up nav clicks after header is injected
