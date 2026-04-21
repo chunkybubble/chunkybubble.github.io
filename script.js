@@ -1,8 +1,12 @@
-// Initialize animations
-AOS.init({ duration: 800, once: true });
+// Load a partial HTML file and inject it into a selector
+async function loadPartial(file, selector) {
+  const res = await fetch(file);
+  if (!res.ok) return;
+  const html = await res.text();
+  const el = document.querySelector(selector);
+  if (el) el.outerHTML = html;
+}
 
-// Grab clickable links & content container, skip external links
-const links = document.querySelectorAll('.main-nav a:not(.external-link)');
 const container = document.getElementById('content');
 
 async function loadSection(route, addToHistory = true) {
@@ -14,7 +18,6 @@ async function loadSection(route, addToHistory = true) {
   const res  = await fetch(file, { credentials: 'omit' });
   if (!res.ok) {
     console.error(`Failed to load ${file}: ${res.status}`);
-    // Optional: load a 404 page or show a toast here
     container.classList.remove('fade-out');
     return;
   }
@@ -31,21 +34,33 @@ async function loadSection(route, addToHistory = true) {
   if (newTitle) document.title = newTitle;
 
   // ===== UI polish =====
-  window.scrollTo({ top: 0, behavior: 'instant' }); // ensures new section starts at top
-  AOS.refresh(); // re-init AOS on fresh content
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  AOS.refresh();
   container.classList.replace('fade-out', 'fade-in');
 
   if (addToHistory) history.pushState({ route }, newTitle || '', route);
 }
 
+// Initialize partials and animations
+async function init() {
+  await Promise.all([
+    loadPartial('/partials/_header.html', 'header'),
+    loadPartial('/partials/_footer.html', 'footer'),
+  ]);
 
-// wire up clicks
-links.forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    loadSection(link.getAttribute('href'));
+  // Wire up nav clicks after header is injected
+  const links = document.querySelectorAll('.main-nav a:not(.external-link)');
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      loadSection(link.getAttribute('href'));
+    });
   });
-});
+
+  AOS.init({ duration: 800, once: true });
+}
+
+init();
 
 // handle back/forward
 window.addEventListener('popstate', () => {
