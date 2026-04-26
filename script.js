@@ -1,4 +1,5 @@
 // Load a partial HTML file and inject it into a selector.
+// Tries multiple paths so the site works whether partials live in /partials or the root.
 async function loadPartial(files, selector) {
   const fileList = Array.isArray(files) ? files : [files];
   let html = '';
@@ -21,23 +22,45 @@ async function loadPartial(files, selector) {
 
 const container = document.getElementById('content');
 
-function setActiveNav(route = location.pathname) {
-  const normalizedRoute = route.replace(/\/$/, '') || '/';
-  document.querySelectorAll('.main-nav a:not(.external-link)').forEach(link => {
-    const linkRoute = link.getAttribute('href').replace(/\/$/, '') || '/';
-    const isActive = linkRoute === normalizedRoute;
-    link.toggleAttribute('aria-current', isActive);
+function getCurrentPage(path = location.pathname) {
+  const cleanPath = path
+    .replace(/\/index\.html$/, '/')
+    .replace(/\.html$/, '')
+    .replace(/\/$/, '') || '/';
+
+  if (cleanPath === '/') return 'about';
+  if (cleanPath.startsWith('/games')) return 'games';
+  if (cleanPath.startsWith('/projects') || cleanPath.includes('cave-tool') || cleanPath.includes('landing-simulator')) return 'projects';
+  if (cleanPath.startsWith('/contact')) return 'contact';
+
+  return '';
+}
+
+function setActiveNav(path = location.pathname) {
+  const currentPage = getCurrentPage(path);
+
+  document.querySelectorAll('.main-nav a').forEach(link => {
+    link.classList.remove('active-page');
+
+    // Resume should never be highlighted.
+    if (link.classList.contains('external-link')) return;
+
+    const href = link.getAttribute('href') || '';
+    const linkPage = getCurrentPage(href);
+
+    if (linkPage === currentPage) {
+      link.classList.add('active-page');
+    }
   });
 }
 
 async function loadSection(route, addToHistory = true) {
   if (!container) return;
 
-  container.classList.remove('fade-in');
   container.classList.add('fade-out');
 
-  const cleanRoute = route.replace(/^\/|\/$/g, '');
-  const file = route === '/' ? '/index.html' : `/${cleanRoute}.html`;
+  // derive the file: "/" → "index.html", "/games" → "games.html"
+  const file = route === '/' ? '/index.html' : `/${route.replace(/^\/|\/$/g, '')}.html`;
 
   const res = await fetch(file, { credentials: 'omit' });
   if (!res.ok) {
@@ -49,33 +72,35 @@ async function loadSection(route, addToHistory = true) {
   const html = await res.text();
   const doc = new DOMParser().parseFromString(html, 'text/html');
 
+  // ===== swap main content =====
   const newMain = doc.querySelector('main')?.innerHTML ?? '';
+  container.innerHTML = newMain;
+
+  // ===== update the <title> =====
   const newTitle = doc.querySelector('title')?.textContent?.trim();
+  if (newTitle) document.title = newTitle;
 
-  window.setTimeout(() => {
-    container.innerHTML = newMain;
-    if (newTitle) document.title = newTitle;
-
-    window.scrollTo({ top: 0, behavior: 'instant' });
-    if (window.AOS) AOS.refresh();
-
-    container.classList.remove('fade-out');
-    container.classList.add('fade-in');
-    setActiveNav(route);
-  }, 160);
+  // ===== UI polish =====
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  if (window.AOS) AOS.refresh();
+  container.classList.replace('fade-out', 'fade-in');
+  setActiveNav(route);
 
   if (addToHistory) history.pushState({ route }, newTitle || '', route);
 }
 
+// Initialize partials and animations
 async function init() {
   await Promise.all([
     loadPartial('/partials/header.html', 'header'),
     loadPartial('/partials/footer.html', 'footer'),
   ]);
 
-  document.querySelectorAll('.main-nav a:not(.external-link)').forEach(link => {
-    link.addEventListener('click', event => {
-      event.preventDefault();
+  // Wire up nav clicks after header is injected. Resume is ignored because it opens a PDF.
+  const links = document.querySelectorAll('.main-nav a:not(.external-link)');
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
       loadSection(link.getAttribute('href'));
     });
   });
@@ -83,12 +108,13 @@ async function init() {
   setActiveNav();
 
   if (window.AOS) {
-    AOS.init({ duration: 650, easing: 'ease-out-cubic', once: true, offset: 80 });
+    AOS.init({ duration: 800, once: true });
   }
 }
 
 init();
 
+// handle back/forward
 window.addEventListener('popstate', () => {
   loadSection(location.pathname, false);
 });

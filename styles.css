@@ -274,14 +274,21 @@ li + li {
 }
 
 .main-nav .external-link {
-  color: #083142;
-  background: #fff;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  /* color: #083142; */
+  /* background: #fff; */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
 .main-nav .external-link:hover {
-  color: #062534;
+  /* color: #0e4d6d; */
   transform: translateY(-1px);
+}
+
+.main-nav a.active-page {
+  color: #123044;
+  background: #fff;
+  border-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
 }
 
 /* ============================= */
